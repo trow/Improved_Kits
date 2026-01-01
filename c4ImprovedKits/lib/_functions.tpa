@@ -233,70 +233,70 @@ BEGIN
 END
 
 
-/* **************************************** */
+/* ****************************************
 	
-//DEFINE_ACTION_FUNCTION C4_HANDLE_CHARSETS 
-//	STR_VAR
-//		lang_path=~~
-//		convert_array=~~
-//		noconvert_array=~~
-//		reload_array=~~
-//BEGIN
-//
-//	ACTION_DEFINE_ASSOCIATIVE_ARRAY character_set BEGIN
-//		schinese => CP936
-//		tschinese => CP950
-//		czech => CP1250
-//		polish => CP1250
-//		polski => CP1250
-//		english => CP1252
-//		american => CP1252
-//		french => CP1252
-//		francais => CP1252
-//		german => CP1252
-//		deutsch => CP1252
-//		italian => CP1252
-//		italiano => CP1252
-//		spanish => CP1252
-//		castilian => CP1252
-//		espanol => CP1252
-//		castellano => CP1252
-//		japanese => CP932
-//		korean => CP949
-//	END
-//	
-//	ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
-//		MKDIR ~%MOD_FOLDER%/%lang_path%/ee/%LANGUAGE%~
-//		COPY ~%MOD_FOLDER%/%lang_path%/%LANGUAGE%~ ~%MOD_FOLDER%/%lang_path%/ee/%LANGUAGE%~
-//		ACTION_IF ~%WEIDU_OS%~ STR_EQ ~WIN32~ THEN BEGIN
-//			LAF HANDLE_CHARSETS 
-//				INT_VAR
-//					infer_charset = 1
-//				STR_VAR 
-//					tra_path = EVAL ~%MOD_FOLDER%/%lang_path%/ee~
-//					iconv_path = EVAL ~%MOD_FOLDER%/%lang_path%/iconv~
-//					charset_table=character_set
-//					convert_array
-//					noconvert_array
-//					reload_array
-//			END
-//		END ELSE BEGIN
-//			LAF HANDLE_CHARSETS 
-//				INT_VAR
-//					infer_charset = 1
-//				STR_VAR
-//					tra_path = EVAL ~%MOD_FOLDER%/%lang_path%/ee~
-//					charset_table=character_set
-//					convert_array
-//					noconvert_array
-//					reload_array
-//			END
-//		END
-//	END	
-//END
+DEFINE_ACTION_FUNCTION C4_HANDLE_CHARSETS 
+	STR_VAR
+		lang_path=~~
+		convert_array=~~
+		noconvert_array=~~
+		reload_array=~~
+BEGIN
+
+	ACTION_DEFINE_ASSOCIATIVE_ARRAY character_set BEGIN
+		schinese => CP936
+		tschinese => CP950
+		czech => CP1250
+		polish => CP1250
+		polski => CP1250
+		english => CP1252
+		american => CP1252
+		french => CP1252
+		francais => CP1252
+		german => CP1252
+		deutsch => CP1252
+		italian => CP1252
+		italiano => CP1252
+		spanish => CP1252
+		castilian => CP1252
+		espanol => CP1252
+		castellano => CP1252
+		japanese => CP932
+		korean => CP949
+	END
+	
+	ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
+		MKDIR ~%MOD_FOLDER%/%lang_path%/ee/%LANGUAGE%~
+		COPY ~%MOD_FOLDER%/%lang_path%/%LANGUAGE%~ ~%MOD_FOLDER%/%lang_path%/ee/%LANGUAGE%~
+		ACTION_IF ~%WEIDU_OS%~ STR_EQ ~WIN32~ THEN BEGIN
+			LAF HANDLE_CHARSETS 
+				INT_VAR
+					infer_charset = 1
+				STR_VAR 
+					tra_path = EVAL ~%MOD_FOLDER%/%lang_path%/ee~
+					iconv_path = EVAL ~%MOD_FOLDER%/%lang_path%/iconv~
+					charset_table=character_set
+					convert_array
+					noconvert_array
+					reload_array
+			END
+		END ELSE BEGIN
+			LAF HANDLE_CHARSETS 
+				INT_VAR
+					infer_charset = 1
+				STR_VAR
+					tra_path = EVAL ~%MOD_FOLDER%/%lang_path%/ee~
+					charset_table=character_set
+					convert_array
+					noconvert_array
+					reload_array
+			END
+		END
+	END	
+END
 
 
-/* **************************************** */
+**************************************** */
 		
 DEFINE_PATCH_FUNCTION CLONE_SPELL_HEADER
 	INT_VAR
